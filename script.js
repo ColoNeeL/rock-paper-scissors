@@ -41,19 +41,20 @@ function game()
     let result = '';
     let playerScore = 0;
     let computerScore = 0;
-    const playerSelection = prompt("Chose your hand! (rock, paper or scissors)");
+    let playerSelection = '';
     let computerSelection = '';
 
     for(let i = 0; i < 5; i++)
     {
-        computerSelection = getComputerChoice();
-        result = playRound(playerSelection, computerSelection);
-        console.log(result);
+      playerSelection = prompt("Chose your hand! (rock, paper or scissors)");
+      computerSelection = getComputerChoice();
+      result = playRound(playerSelection, computerSelection);
+      console.log(result);
 
-        if(result === `The computer wins! ${computerSelection} beats ${playerSelection.toLowerCase()}`)
-        computerScore++;
-        else if(result === `You win this game! ${computerSelection} loses to ${playerSelection.toLowerCase()}`)
-        playerScore++;
+      if(result === `The computer wins! ${computerSelection} beats ${playerSelection.toLowerCase()}`)
+      computerScore++;
+      else if(result === `You win this game! ${computerSelection} loses to ${playerSelection.toLowerCase()}`)
+      playerScore++;
     }
 
     if(playerScore > computerScore)
